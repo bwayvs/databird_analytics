@@ -1,0 +1,189 @@
+/* ==========================================
+   Global Variables & Base Styles
+   ========================================== */
+:root {
+  --bg-color: #0d1117;          /* Dark charcoal background */
+  --card-bg: #161b22;           /* Slightly lighter dark container bg */
+  --card-border: #30363d;       /* Subtle border for structure */
+  --accent-cyan: #58a6ff;       /* Data cyan accent */
+  --accent-green: #3fb950;      /* Terminal/Python green accent */
+  --text-primary: #f0f6fc;      /* Bright off-white for high contrast */
+  --text-secondary: #8b949e;    /* Muted text for subtle details */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* Subtle background grid pattern for a data vibe */
+  background-image: radial-gradient(var(--card-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ==========================================
+   Header & Navigation
+   ========================================== */
+.site-header {
+  padding: 2.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--card-border);
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bird-logo {
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* ==========================================
+   Main Content Layout
+   ========================================== */
+.main-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  flex: 1; /* Pushes footer to bottom if page content is short */
+}
+
+/* ==========================================
+   Bio / Hero Section
+   ========================================== */
+.bio-section {
+  margin-bottom: 3.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-badge {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--accent-green);
+  background-color: rgba(63, 185, 80, 0.1);
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.bio-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.bio-text {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+}
+
+/* ==========================================
+   Interests Section (Grid Layout)
+   ========================================== */
+.interests-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+}
+
+.card-icon {
+  color: var(--accent-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+.site-footer {
+  border-top: 1px solid var(--card-border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+/* ==========================================
+   Responsive Queries (Desktop / Tablet)
+   ========================================== */
+@media (min-width: 640px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bio-section {
+    padding: 2.5rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+}
